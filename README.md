@@ -15,11 +15,11 @@ Run the Application.java class
 ## Console after running
 ```
 Mining block 1... 
-Block Mined!!! : 00000bc84417f31f3935cec1bd7990ee6a709fc6aaefbd389c19dcd4861dcf37
+Block Mined! Block hash: 00000bc84417f31f3935cec1bd7990ee6a709fc6aaefbd389c19dcd4861dcf37
 Mining block 2... 
-Block Mined!!! : 00000cb00fea8c785b4e13fdfb8534e2b1a52c1ad14189584e0871e0158e63cb
+Block Mined! Block hash: 00000cb00fea8c785b4e13fdfb8534e2b1a52c1ad14189584e0871e0158e63cb
 Mining block 3... 
-Block Mined!!! : 0000001e1f78b4b6ffe72dafe5595f5f6fce731720caca0df5a7e2b392fdc274
+Block Mined! Block hash: 0000001e1f78b4b6ffe72dafe5595f5f6fce731720caca0df5a7e2b392fdc274
 
 Blockchain is Valid: true
 
