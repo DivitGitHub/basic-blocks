@@ -21,7 +21,7 @@ public class BlockChainUtil {
 		for (int i = 1; i < blockchain.size(); i++) {
 			Block currentBlock = blockchain.get(i);
 			Block previousBlock = blockchain.get(i - 1);
-			if (!currentBlock.getHash().equals(currentBlock.calculateHash())) {
+			if (!currentBlock.getHash().equals(calculateHash(currentBlock))) {
 				return false;
 			} else if (!previousBlock.getHash().equals(currentBlock.getPreviousHash())) {
 				return false;
@@ -32,5 +32,20 @@ public class BlockChainUtil {
 			}
 		}
 		return true;
+	}
+
+	public static String calculateHash(Block block) {
+		String calculatedhash = StringUtil
+				.applySha256(block.getPreviousHash() + Long.toString(block.getTimeStamp()) + Integer.toString(block.getNonce()) + block.getData());
+		return calculatedhash;
+	}
+
+	public static void mineBlock(Block block, int difficulty) {
+		String target = new String(new char[difficulty]).replace('\0', '0'); // Create a string with difficulty * "0"
+		while (!block.getHash().substring(0, difficulty).equals(target)) {
+			block.incrementNonce();
+			block.setHash(calculateHash(block));
+		}
+		System.out.println("Block Mined!!! : " + block.getHash());
 	}
 }
