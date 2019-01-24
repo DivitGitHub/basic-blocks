@@ -46,6 +46,6 @@ public class BlockChainUtil {
 			block.incrementNonce();
 			block.setHash(calculateHash(block));
 		}
-		System.out.println("Block Mined!!! : " + block.getHash());
+		System.out.println("Block Mined! Block hash: " + block.getHash());
 	}
 }
