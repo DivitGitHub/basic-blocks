@@ -50,4 +50,4 @@ The block chain:
 ```
 
 ### About
-I created this project for fun and to allow me have a basic understand of how blockchain works.
+I created this project for fun and to allow me to explore the basic functionality of how blockchain works.
