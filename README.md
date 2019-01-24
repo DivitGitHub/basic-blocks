@@ -1,4 +1,4 @@
-# basic-blocks
+# BasicBlocks
 
 This project shows the simple blockchain functionality. It creates a block with a digital signature (in this case our hash) and also stores the previous block hash. This also mines/validates existing blocks.
 
