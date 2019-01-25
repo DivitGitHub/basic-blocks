@@ -22,11 +22,12 @@ public class BlockChainUtil {
 			Block currentBlock = blockchain.get(i);
 			Block previousBlock = blockchain.get(i - 1);
 			if (!currentBlock.getHash().equals(calculateHash(currentBlock))) {
+				System.out.println("Block does not have correct hash");
 				return false;
 			} else if (!previousBlock.getHash().equals(currentBlock.getPreviousHash())) {
+				System.out.println("Block does not have correct previous hash");
 				return false;
 			} else if (!currentBlock.getHash().substring(0, difficulty).equals(hashTarget)) {
-				// check if hash is solved
 				System.out.println("This block hasn't been mined");
 				return false;
 			}
@@ -35,13 +36,16 @@ public class BlockChainUtil {
 	}
 
 	public static String calculateHash(Block block) {
-		String calculatedhash = StringUtil
-				.applySha256(block.getPreviousHash() + Long.toString(block.getTimeStamp()) + Integer.toString(block.getNonce()) + block.getData());
+		String calculatedhash = StringUtil.applySha256(
+			block.getPreviousHash() 
+			+ Long.toString(block.getTimeStamp()) 
+			+ Integer.toString(block.getNonce()) 
+			+ block.getData());
 		return calculatedhash;
 	}
 
 	public static void mineBlock(Block block, int difficulty) {
-		String target = new String(new char[difficulty]).replace('\0', '0'); // Create a string with difficulty * "0"
+		String target = new String(new char[difficulty]).replace('\0', '0');
 		while (!block.getHash().substring(0, difficulty).equals(target)) {
 			block.incrementNonce();
 			block.setHash(calculateHash(block));
